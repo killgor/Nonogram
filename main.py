@@ -1,39 +1,72 @@
+#Sergio Alvarez Pedreros 18.035.923-0
+#Ian Wells Hernández 18.783.804-5
 import numpy as np
     
-def createNonogram(n,m):#n and m refers to lenght of matrix
-    nonogram=np.zeros(n,m)
+def createNonogram(n,m):#n y m son las dimensiones de la matriz
+    nonogram=np.zeros((n,m))
     return nonogram
 
-def imprimirNonograma(state):
+def rules(nonogram,rowHints,columnHints,n,m):
+    #pistas=Pistas.split()
+    x=0
+    y=0
+    
+    for listP in rowHints:
+        
+        #Si dentro de las pistas encuentra un 0, rellena toda la fila con 1
+        if(listP[x]==0):
+            
+            for y in range(m):
+                nonogram[x,y]=1
+        if(listP[x]==m):
+            for y in range(m):
+                nonogram[x,y]=2
 
-def leerPistas():
-    listaIzquierda     
+        x=x+1
+    
+    for listP in columnHints:
+        if(listP[y]==0):
+            for x in range(n):
+                nonogram[x,y]=1
+        if(listP[y]==n):
+            for x in range(m):
+                nonogram[x,y]=2
+        y=y+1
+    return nonogram
 
-path = '/users/personal/documents/nonogram.txt'
+def printNonogram(nonogram):
+    print(nonogram)
+    return
+
+path = '/users/personal/documents/github/nonogram/nonogram.txt'
 
 file = open(path,'r')
     
-n = archivo.readline()
-m = archivo.readline()
+n = file.readline()
+m = file.readline()
 n = int(n)
 m = int(m)
-    
-createNonogram(n,m)
+
+nonogram = createNonogram(n,m)
     
 rowHints = []
 columnHints = []
 
 
 for i in range(n):
-    hints = archivo.readline() #se lee una linea del archivo con pistas 
+    hints = file.readline() #se lee una linea del archivo con pistas 
     elementList = [] 
     for element in hints.split():
-        elemntList.add(int(elemnt)) #se transforman los elementos en numero
-        rowHints.add(elemntList)
+        elementList.append(int(element)) #se transforman los elementos en numero
+        rowHints.append(elementList)
     
 for i in range(m):
-    hints = archivo.readline() #se lee una linea del archivo con pistas 
+    hints = file.readline() #se lee una linea del archivo con pistas 
     elementList = [] 
     for element in hints.split():
-        elemntList.add(int(elemnt)) #se transforman los elementos en numero
-        columnHints.add(elemntList)
+        elementList.append(int(element)) #se transforman los elementos en numero
+        columnHints.append(elementList)
+print(type(rowHints[0]))
+print(type(columnHints))
+#nonogram = rules(nonogram,rowHints,columnHints,n,m)
+printNonogram(nonogram)
