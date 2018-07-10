@@ -1,5 +1,5 @@
 #Sergio Alvarez Pedreros 18.035.923-0
-#Ian Wells Hernández 18.783.804-5
+#Ian Wells Hernandez 18.783.804-5
 import numpy as np
     
 def createNonogram(n,m):#n y m son las dimensiones de la matriz
@@ -38,7 +38,8 @@ def printNonogram(nonogram):
     print(nonogram)
     return
 
-path = '/users/personal/documents/github/nonogram/nonogram.txt'
+#path = '/users/personal/documents/github/nonogram/nonogram.txt'
+path = '~/git/nonogram/nonogram.txt'
 
 file = open(path,'r')
     
